@@ -41,6 +41,10 @@
             color: #ffeb3b;
         }
 
+        .nav-right {
+            position: relative;
+        }
+
         #profileButton {
             background-color: white;
             color: #1e90ff;
@@ -55,6 +59,35 @@
         #profileButton:hover {
             background-color: #ffeb3b;
             color: #1e90ff;
+        }
+
+        /* Dropdown Menu */
+        .profile-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 200px;
+            margin-top: 10px;
+            z-index: 1;
+        }
+
+        .profile-dropdown p {
+            margin: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .profile-dropdown p span {
+            font-weight: 400;
+            color: #555;
+        }
+
+        #profileButton:focus + .profile-dropdown,
+        .profile-dropdown:hover {
+            display: block;
         }
 
         h1 {
@@ -138,7 +171,12 @@
             <a href="user-details.html">User Details</a>
         </div>
         <div class="nav-right">
-            <button id="profileButton">Profile</button>
+            <button id="profileButton" tabindex="0">Profile</button>
+            <div class="profile-dropdown">
+                <p><strong>Name:</strong> <span>John Doe</span></p>
+                <p><strong>Email:</strong> <span>john.doe@example.com</span></p>
+                <p><strong>Role:</strong> <span>User</span></p>
+            </div>
         </div>
     </div>
 </nav>
