@@ -83,6 +83,13 @@
             color: #2ef014;
         }
 
+        /* Button container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
         #updateButton, #deleteButton {
             display: inline-block;
             margin: 10px;
@@ -119,6 +126,10 @@
                 padding: 20px;
             }
 
+            .button-container {
+                flex-direction: column;
+            }
+
             #updateButton, #deleteButton {
                 width: 100%;
                 margin: 10px 0;
@@ -145,8 +156,11 @@
 
 <div id="userDetails"></div>
 
-<button id="updateButton">Update User</button>
-<button id="deleteButton">Delete User</button>
+<!-- Centered button container -->
+<div class="button-container">
+    <button id="updateButton">Update User</button>
+    <button id="deleteButton">Delete User</button>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
