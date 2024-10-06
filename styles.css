@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+}
+
+nav {
+    background-color: #007bff;
+    padding: 10px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.nav-left a:hover {
+    text-decoration: underline;
+}
+
+.nav-right {
+    display: flex;
+}
+
+#profileButton {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+form {
+    width: 300px;
+    margin: auto;
+}
+
+input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

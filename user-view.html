@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User View</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="user-details.html">User Details</a>
+        </div>
+        <div class="nav-right">
+            <button id="profileButton">Profile</button>
+        </div>
+    </div>
+</nav>
+
+<h1>User Details View</h1>
+
+<div id="userDetails"></div>
+
+<button id="updateButton">Update User</button>
+<button id="deleteButton">Delete User</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const userData = JSON.parse(localStorage.getItem('selectedUserData'));
+        const userDetailsDiv = document.getElementById('userDetails');
+
+        if (userData) {
+            userDetailsDiv.innerHTML = `
+                <p><strong>Name:</strong> <span id="viewName">${userData.name}</span></p>
+                <p><strong>Age:</strong> <span id="viewAge">${userData.age}</span></p>
+                <p><strong>ID Number:</strong> <span id="viewIdNo">${userData.idno}</span></p>
+                <p><strong>Phone Number:</strong> <span id="viewPhone">${userData.phone}</span></p>
+                <p><strong>Location:</strong> <span id="viewLocation">${userData.location}</span></p>
+            `;
+        } else {
+            userDetailsDiv.innerHTML = '<p>No user data found.</p>';
+        }
+
+        document.getElementById('updateButton').addEventListener('click', function () {
+            const updatedData = {
+                name: prompt("Enter new name", userData.name) || userData.name,
+                age: prompt("Enter new age", userData.age) || userData.age,
+                idno: prompt("Enter new ID Number", userData.idno) || userData.idno,
+                phone: prompt("Enter new Phone Number", userData.phone) || userData.phone,
+                location: prompt("Enter new Location", userData.location) || userData.location,
+            };
+            localStorage.setItem('userData', JSON.stringify(updatedData));
+            alert('User updated successfully!');
+            window.location.href = 'user-details.html';
+        });
+
+        document.getElementById('deleteButton').addEventListener('click', function () {
+            localStorage.removeItem('userData');
+            localStorage.removeItem('selectedUserData');
+            alert('User deleted successfully!');
+            window.location.href = 'user-details.html';
+        });
+    });
+</script>
+
+</body>
+</html>
