@@ -4,7 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+
+        nav {
+            background-color: #1e90ff;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-left a:hover {
+            color: #ffeb3b;
+        }
+
+        #profileButton {
+            background-color: white;
+            color: #1e90ff;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #profileButton:hover {
+            background-color: #ffeb3b;
+            color: #1e90ff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #1e90ff;
+            color: white;
+            font-weight: 600;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+            cursor: pointer;
+        }
+
+        td {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .no-data {
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            table {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            nav {
+                padding: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -32,7 +147,9 @@
             <th>Location</th>
         </tr>
     </thead>
-    <tbody id="userTableBody"></tbody>
+    <tbody id="userTableBody">
+        <!-- User data will be populated here -->
+    </tbody>
 </table>
 
 <script>
@@ -54,7 +171,7 @@
                 window.location.href = 'user-view.html';
             });
         } else {
-            userTableBody.innerHTML = '<tr><td colspan="5">No user data found.</td></tr>';
+            userTableBody.innerHTML = '<tr><td colspan="5" class="no-data">No user data found.</td></tr>';
         }
     });
 </script>
